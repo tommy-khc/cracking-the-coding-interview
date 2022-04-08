@@ -31,10 +31,9 @@ public class StringBuilder {
             for (int i = 0 ; i < strings.length ; i++) {
                 temp[i] = strings[i];
             }
-            temp[size++] = str;
             strings = temp;
+            append(str);
         }
-
         for (String s : strings) {
             System.out.println(s);
         }
