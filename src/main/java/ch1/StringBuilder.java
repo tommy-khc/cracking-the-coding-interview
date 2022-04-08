@@ -21,11 +21,10 @@ public class StringBuilder {
             return;
         }
 
-        char[] c = str.toCharArray();
-        totalCharNumber += c.length ;
-
         if (size < strings.length) {
             strings[size++] = str;
+            char[] c = str.toCharArray();
+            totalCharNumber += c.length ;
         } else {
             String[] temp = new String[strings.length*2];
             for (int i = 0 ; i < strings.length ; i++) {
@@ -40,7 +39,6 @@ public class StringBuilder {
     }
 
     public String toString () {
-
 
         char[] totalChar = new char[totalCharNumber];
         int iteratorIndex = 0;
