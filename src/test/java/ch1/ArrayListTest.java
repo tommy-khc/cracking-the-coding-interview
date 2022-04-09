@@ -24,7 +24,8 @@ public class ArrayListTest {
     @Test
     public void test () {
         Object[] o = new Object[10];
-        Boolean a = o == null?Boolean.TRUE:Boolean.FALSE;
+        Boolean a = o == null ? Boolean.TRUE:Boolean.FALSE;
         System.out.println(a);
+        //o = new Object[10] , so that it is not null
     }
 }
