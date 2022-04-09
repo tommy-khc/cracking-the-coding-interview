@@ -2,8 +2,6 @@ package ch1;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 public class StringBuilderTest {
 
     @Test
