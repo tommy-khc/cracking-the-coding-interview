@@ -1,18 +1,19 @@
 package ch1;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 public class IsUniqueTest {
 
     @Test
-    public void answer() {
+    public void notUnique() {
         String str1 = "hjdhfjf";
-        System.out.println(IsUnique.answer(str1));
+        Assert.assertEquals(Boolean.FALSE, IsUnique.answer(str1));
     }
 
     @Test
-    public void answerTwo() {
+    public void unique() {
         String str1 = "abcdefg";
-        System.out.println(IsUnique.answer(str1));
+        Assert.assertEquals(Boolean.TRUE, IsUnique.answer(str1));
     }
 }
