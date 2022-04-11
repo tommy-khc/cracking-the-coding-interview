@@ -29,34 +29,4 @@ public class URLify {
 
     }
 
-//        if (str == null) {
-//            return null;
-//        }
-//
-//        char[] cArr = str.toCharArray();
-//
-//        List<Character> cArrList = new ArrayList<>();
-//
-//        for (int i = 0 ; i < cArr.length ; i++) {
-//            cArrList.add(cArr[i]);
-//        }
-//
-//        List<Character> additionalCharList = new ArrayList<>();
-//        for (Character c : cArrList) {
-//            //if it is not a whitespace
-//            if (!Character.isWhitespace(c)) {
-//                additionalCharList.add(c);
-//            } else {
-//                additionalCharList.add('\u0025');
-//                additionalCharList.add('\u0032');
-//                additionalCharList.add('\u0030');
-//            }
-//        }
-//
-//        char[] additionalCharArr = new char[additionalCharList.size()];
-//        for (int i = 0 ; i < additionalCharList.size() ; i++) {
-//            additionalCharArr[i] = additionalCharList.get(i);
-//        }
-//
-//        return new String(additionalCharArr);
 }
