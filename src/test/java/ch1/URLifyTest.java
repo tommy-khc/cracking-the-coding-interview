@@ -10,4 +10,5 @@ public class URLifyTest {
         String str = "Mr John Smith    ";
         Assertions.assertEquals("Mr%20John%20Smith", URLify.answer(str));
     }
+
 }
