@@ -13,9 +13,17 @@ public class RotateMatrixTest {
         }
     }
 
+    //3x3 matrix
     @Test
-    public void questionOne() {
+    public void matrix3X3() {
         int[][] martix = {{1,2,3},{4,5,6},{7,8,9}};
+        RotateMatrix.answer(martix, "90");
+    }
+
+    //4x4 matrix
+    @Test
+    public void matrix4X4() {
+        int[][] martix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         RotateMatrix.answer(martix, "90");
     }
 }

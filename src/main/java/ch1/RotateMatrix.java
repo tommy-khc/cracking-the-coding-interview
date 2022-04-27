@@ -41,27 +41,29 @@ public class RotateMatrix {
         logger.info("input matrix: " + Arrays.deepToString(matrix));
 
         //rotation
-        int size = row;
-        int timesRequired = size/2 + 1;
+        int l = matrix.length;
+        //last index in array = f
+        int f = l-1;
+        int timesRequired = l/2 + 1;
         logger.debug("timesRequired: " + timesRequired);
         int times = 0;
         //anti-clockwise
         if (angle.equals("90")) {
-            for (int i = 0 ; i < size ; i++ ) {
-                for (int j = 0 ; j < size ; j++) {
+            for (int i = 0 ; i < l ; i++ ) {
+                for (int j = 0 ; j < l ; j++) {
 
                     if (times == timesRequired) {
                         break;
                     }
 
                     int temp1 = matrix[i][j];
-                    int temp2 = matrix[size-1-j][i];
-                    int temp3 = matrix[size-1-i][size-1-j];
-                    int temp4 = matrix[i][size-1-j];
+                    int temp2 = matrix[f-j][i];
+                    int temp3 = matrix[f-i][f-j];
+                    int temp4 = matrix[j][f-i];
 
-                    matrix[size-1-j][i] = temp1;
-                    matrix[size-1-i][size-1-j] = temp2;
-                    matrix[i][size-1-j]= temp3;
+                    matrix[f-j][i] = temp1;
+                    matrix[f-i][f-j] = temp2;
+                    matrix[j][f-i]= temp3;
                     matrix[i][j] = temp4;
 
                     times++;
