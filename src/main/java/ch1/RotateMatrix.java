@@ -41,37 +41,54 @@ public class RotateMatrix {
         logger.info("input matrix: " + Arrays.deepToString(matrix));
 
         //rotation
-        int l = matrix.length;
-        //last index in array = f
-        int f = l-1;
-        int timesRequired = l/2 + 1;
-        logger.debug("timesRequired: " + timesRequired);
-        int times = 0;
+        //initial state: outermost layer in matrix, the first rotated element is matrix[0][0]
+        int length = matrix.length; // length of matrix
+        int l = matrix.length; //length of layer
+        for (int i = 0 ; i <= (length/2)-1 ; i++, l-=2) { // i means matrix[i][i], the first rotated element in each layer
+            matrix = rotateElementsInLayer(matrix, i, l, angle);
+        }
+
+        logger.info("return: " + Arrays.deepToString(matrix));
+        return matrix;
+    }
+
+    //i refers to matrix[i][i], first rotated element in each rotation, l means length of the layer
+    public static int[][] rotateElementsInLayer (int[][] matrix, int i, int l, String angle) {
+
+        logger.debug("rotateElementsInLayer, input para: " + Arrays.deepToString(matrix) + " " + i + " " + l + " " + angle);
+
+        //last index of a layer = f
+        int f = (matrix.length-1)-i;
+        double numberOfElements =  l != 2 ? Math.pow(l,2) - Math.pow(l-2,2): 4;
+        logger.debug("rotateElementsInLayer, numberOfElements: " + numberOfElements);
+        double requiredTimes = numberOfElements/4; //There should not contain any reminders
+        logger.debug("requiredTimes: " + requiredTimes);
+        double times = 0;
+
         //anti-clockwise
         if (angle.equals("90")) {
-            for (int i = 0 ; i < l ; i++ ) {
-                for (int j = 0 ; j < l ; j++) {
+            for (int q = i ; q < l ; q++) {
+                for (int p = i ; p < l ; p++) {
 
-                    if (times == timesRequired) {
+                    if (times == requiredTimes) {
                         break;
                     }
 
-                    int temp1 = matrix[i][j];
-                    int temp2 = matrix[f-j][i];
-                    int temp3 = matrix[f-i][f-j];
-                    int temp4 = matrix[j][f-i];
+                    int temp1 = matrix[q][p];
+                    int temp2 = matrix[f-p][q];
+                    int temp3 = matrix[f-q][f-p];
+                    int temp4 = matrix[p][f-q];
 
-                    matrix[f-j][i] = temp1;
-                    matrix[f-i][f-j] = temp2;
-                    matrix[j][f-i]= temp3;
-                    matrix[i][j] = temp4;
+                    matrix[f-p][q] = temp1;
+                    matrix[f-q][f-p] = temp2;
+                    matrix[p][f-q] = temp3;
+                    matrix[q][p] = temp4;
 
                     times++;
                 }
             }
         }
 
-        logger.info("return: " + Arrays.deepToString(matrix));
         return matrix;
     }
 }
