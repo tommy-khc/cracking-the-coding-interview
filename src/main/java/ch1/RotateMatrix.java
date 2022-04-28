@@ -3,7 +3,6 @@ package ch1;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.math.RoundingMode;
 import java.util.Arrays;
 
 //int[][] --> int[row n][column k in row n]
@@ -33,7 +32,7 @@ public class RotateMatrix {
         }
         for (int i : noOfElements) {
             if (i != row) {
-                logger.error("it is not square matrix");
+                logger.error("It is not square matrix");
                 return matrix;
             }
         }
@@ -44,7 +43,7 @@ public class RotateMatrix {
         //initial state: outermost layer in matrix, the first rotated element is matrix[0][0]
         int length = matrix.length; // length of matrix
         int l = matrix.length; //length of layer
-        for (int i = 0 ; i <= (length/2)-1 ; i++, l-=2) { // i means matrix[i][i], the first rotated element in each layer
+        for (int i = 0 ; i <= (length/2)-1 ; i++, l-=2) { // i means matrix[i][i], the first rotated element in each layer, int division will throw away the remainder
             matrix = rotateElementsInLayer(matrix, i, l, angle);
         }
 
@@ -57,7 +56,7 @@ public class RotateMatrix {
 
         logger.debug("rotateElementsInLayer, input para: " + Arrays.deepToString(matrix) + " " + i + " " + l + " " + angle);
 
-        //last index of matrix[i] or matrix = f
+        //last index of matrix[i] or matrix is f
         int f = matrix.length-1;
         double numberOfElements =  l != 2 ? Math.pow(l,2) - Math.pow(l-2,2): 4;
         logger.debug("rotateElementsInLayer, numberOfElements: " + numberOfElements);
@@ -75,14 +74,11 @@ public class RotateMatrix {
                     }
 
                     int temp1 = matrix[q][p];
-                    int temp2 = matrix[f-p][q];
-                    int temp3 = matrix[f-q][f-p];
-                    int temp4 = matrix[p][f-q];
 
+                    matrix[q][p] = matrix[p][f-q];
+                    matrix[p][f-q] = matrix[f-q][f-p];
+                    matrix[f-q][f-p] = matrix[f-p][q];
                     matrix[f-p][q] = temp1;
-                    matrix[f-q][f-p] = temp2;
-                    matrix[p][f-q] = temp3;
-                    matrix[q][p] = temp4;
 
                     times++;
                 }
