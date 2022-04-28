@@ -57,8 +57,8 @@ public class RotateMatrix {
 
         logger.debug("rotateElementsInLayer, input para: " + Arrays.deepToString(matrix) + " " + i + " " + l + " " + angle);
 
-        //last index of a layer = f
-        int f = (matrix.length-1)-i;
+        //last index of matrix[i] or matrix = f
+        int f = matrix.length-1;
         double numberOfElements =  l != 2 ? Math.pow(l,2) - Math.pow(l-2,2): 4;
         logger.debug("rotateElementsInLayer, numberOfElements: " + numberOfElements);
         double requiredTimes = numberOfElements/4; //There should not contain any reminders
