@@ -3,6 +3,14 @@ package ch1;
 public class StringRotation {
 
     public static Boolean answer (String str1, String str2) {
+
+        if (str1 == null || str2 == null) {
+            return false;
+        }
+
+        return (str1.length() != str2.length()) &&
+                (str1+str2).contains(str2);
+    }
 //        if (str1.length() != str2.length()) {
 //            return false;
 //        }
@@ -13,12 +21,4 @@ public class StringRotation {
 //        }
 //
 //        return false;
-
-        if (str1 == null || str2 == null) {
-            return false;
-        }
-
-        return (str1.length() != str2.length()) &&
-                (str1+str2).contains(str2);
-    }
 }
