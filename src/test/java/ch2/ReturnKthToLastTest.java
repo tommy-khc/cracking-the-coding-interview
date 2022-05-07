@@ -1,0 +1,61 @@
+package ch2;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.util.LinkedList;
+
+public class ReturnKthToLastTest {
+    
+    @Test
+    public void questionOne() {
+        LinkedList list = new LinkedList();
+        list.add("1th");
+        list.add("2th");
+        list.add("3th");
+        list.add("4th");
+        list.add("5th");
+        list.add("6th");
+        
+        LinkedList expectedList = new LinkedList();
+        expectedList.add("4th");
+        expectedList.add("5th");
+        expectedList.add("6th");
+
+        Assertions.assertEquals(expectedList, ReturnKthToLast.answer(4, list));
+    }
+
+    @Test
+    public void questionTwo() {
+        LinkedList list = new LinkedList();
+        list.add("1th");
+        list.add("2th");
+        list.add("3th");
+        list.add("4th");
+        list.add("5th");
+        list.add("6th");
+
+        LinkedList expectedList = list;
+
+        for (int k = 0 ; k < -10 ; k--) {
+            Assertions.assertEquals(expectedList, ReturnKthToLast.answer(0, list));//TODO
+        }
+    }
+
+    @Test
+    public void questionThree() {
+        LinkedList list = new LinkedList();
+        list.add("1th");
+        list.add("2th");
+        list.add("3th");
+        list.add("4th");
+        list.add("5th");
+        list.add("6th");
+
+        LinkedList expectedList = list;
+
+        for (int k = 7 ; k < 21 ; k++) {
+            Assertions.assertEquals(expectedList, ReturnKthToLast.answer(k, list));
+        }
+    }
+}
