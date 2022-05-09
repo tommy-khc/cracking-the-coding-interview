@@ -37,8 +37,8 @@ public class ReturnKthToLastTest {
 
         LinkedList expectedList = list;
 
-        for (int k = 0 ; k < -10 ; k--) {
-            Assertions.assertEquals(expectedList, ReturnKthToLast.answer(0, list));//TODO
+        for (int k = 0 ; k > -10 ; k--) {
+            Assertions.assertEquals(expectedList, ReturnKthToLast.answer(0, list));
         }
     }
 
@@ -57,5 +57,23 @@ public class ReturnKthToLastTest {
         for (int k = 7 ; k < 21 ; k++) {
             Assertions.assertEquals(expectedList, ReturnKthToLast.answer(k, list));
         }
+    }
+
+    @Test
+    public void questionFour() {
+        LinkedList list = new LinkedList();
+        list.add("1th");
+        list.add("2th");
+        list.add("3th");
+        list.add(null);
+        list.add(null);
+        list.add(null);
+
+        LinkedList expectedList = new LinkedList();
+        expectedList.add(null);
+        expectedList.add(null);
+        expectedList.add(null);
+
+        Assertions.assertEquals(expectedList, ReturnKthToLast.answer(4, list));
     }
 }
