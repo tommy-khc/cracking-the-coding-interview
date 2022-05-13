@@ -1,5 +1,6 @@
 package ch2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PartitionTest {
@@ -12,12 +13,21 @@ public class PartitionTest {
             list.appendToTail(i);
         }
         Partition.answer(5, list);
+
         Partition.LinkedList expected = new Partition.LinkedList();
-        System.out.println(list.toDeepString());
+        expected.appendToTail(3);
+        expected.appendToTail(2);
+        expected.appendToTail(1);
+        expected.appendToTail(5);
+        expected.appendToTail(8);
+        expected.appendToTail(5);
+        expected.appendToTail(10);
+
+        Assertions.assertEquals(expected.toDeepString(), list.toDeepString());
     }
 
     @Test
-    public void questionTwo() {
+    public void verifyHead() {
         Partition.LinkedList list = new Partition.LinkedList();
         System.out.println(list.head);
         int[] elements = {3,5,8,5,10,2,1};
