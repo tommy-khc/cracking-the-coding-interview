@@ -5,8 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DeleteMiddleNodeTest {
 
@@ -95,11 +94,12 @@ public class DeleteMiddleNodeTest {
         lList.push(6);
 
         List<String> expectedList = new ArrayList<>();
-        expectedList.add("Node{data=1}");
-        expectedList.add("Node{data=2}");
-        expectedList.add("Node{data=3}");
-        expectedList.add("Node{data=5}");
-        expectedList.add("Node{data=6}");
+        Collections.addAll(expectedList,
+                "Node{data=1}",
+                "Node{data=2}",
+                "Node{data=3}",
+                "Node{data=5}",
+                "Node{data=6}");
 
         DeleteMiddleNode.answer(lList.GetNthNode(3));
         Assertions.assertEquals(lList.toDeepString(),expectedList);

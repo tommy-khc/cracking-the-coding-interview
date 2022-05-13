@@ -2,7 +2,6 @@ package ch2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.Node;
 
     //input: node c from a singly linkedList
     //output: No output
