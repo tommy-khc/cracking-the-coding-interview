@@ -139,12 +139,12 @@ public class Partition {
         do {
             if (current.data < partition) {
                 list.appendToHead(current.data);
-            }
-            if (current.data >= partition) {
+            } else { //current.data >= partition
                 list.appendToTail(current.data);
             }
+
             list.remove(current);
-            logger.info(list.toDeepString());
+            logger.debug(list.toDeepString());
 
             if (current.next.equals(end)) {
                 endLoop = true;
