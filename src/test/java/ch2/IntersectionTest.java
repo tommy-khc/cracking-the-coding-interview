@@ -36,10 +36,6 @@ public class IntersectionTest {
         list2.appendToTail('b');
         list2.getNthNode(0).next = list1.getNthNode(2);
 
-        //
-        System.out.println(list1.getNthNode(2).toString()); //print memory address
-        System.out.println(list2.getNthNode(1).toString()); //should be the same if they are same Node
-
         Assertions.assertEquals(Boolean.TRUE, Intersection.answer(list1, list2));
     }
 }
