@@ -95,9 +95,9 @@ public class LinkedList {
     public List<String> toDeepString() {
         List<String> list = new ArrayList<>();
         Node n = head;
-        list.add(n.toString());
+        list.add(n.convertDataToString());
         while (n.next != null) {
-            list.add(n.next.toString());
+            list.add(n.next.convertDataToString());
             n = n.next;
         }
         return list;

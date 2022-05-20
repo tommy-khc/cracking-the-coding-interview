@@ -22,8 +22,7 @@ public class Node {
         return next == null ? Boolean.FALSE : Boolean.TRUE;
     }
 
-    @Override
-    public String toString() {
+    public String convertDataToString() {
         return "Node{" +
                 "data=" + data +
                 '}';
