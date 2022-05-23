@@ -76,4 +76,17 @@ public class ReturnKthToLastTest {
 
         Assertions.assertEquals(expectedList, ReturnKthToLast.answer(4, list));
     }
+
+    @Test
+    public void answeredbyMethodOne () {
+        ch2.LinkedList list = new ch2.LinkedList();
+        list.appendToTail('1');
+        list.appendToTail('2');
+        list.appendToTail('3');
+        list.appendToTail('4');
+        list.appendToTail('5');
+        list.appendToTail('6');
+
+        ReturnKthToLast.methodTwo(list.head, 2);
+    }
 }

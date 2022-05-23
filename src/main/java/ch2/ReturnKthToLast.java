@@ -36,4 +36,15 @@ public class ReturnKthToLast {
         return output;
 
     }
+
+    public static int methodTwo (Node head, int k) {
+        if (head == null) {
+            return 0;
+        }
+        int index = methodTwo(head.next, k) + 1;
+        if (index == k) {
+            System.out.println(k + "th to last node is " + head.data);
+        }
+        return index;
+    }
 }
