@@ -47,8 +47,15 @@ public class DeleteMiddleNode {
         }
 
         Node next = n.next;
-        n.data = next.data;
-        n.next = next.next;
-        return Boolean.TRUE;
+        try {
+            n.data = next.data;
+            n.next = next.next;
+            return Boolean.TRUE;
+        } catch (NullPointerException e) {
+            logger.info("The input Node is the last in the list");
+            n = null; //dummy Node
+            return Boolean.TRUE;
+        }
+
     }
 }
