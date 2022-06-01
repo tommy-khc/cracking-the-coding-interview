@@ -18,6 +18,10 @@ public class SumLists {
             data = d;
         }
 
+        public Node() {
+
+        }
+
         void appendToTail (int d) {
             Node end = new Node(d);
             Node n = this;
@@ -32,6 +36,10 @@ public class SumLists {
             return "Node{" +
                     "data=" + data +
                     '}';
+        }
+
+        public void setNext (Node n) {
+            next = n;
         }
     }
 
@@ -206,5 +214,39 @@ public class SumLists {
         }
 
         return list;
+    }
+
+    //answer from book
+    //reverse
+    private static Node addLists (Node list1, Node list2) {
+        return addLists(list1, list2, 0);
+    }
+
+    private static Node addLists (Node list1, Node list2, int carry) {
+
+        if (list1 == null && list2 == null && carry == 0) {
+            return null;
+        }
+
+        Node result = new Node();
+
+        int value = carry;
+
+        if (list1 != null) {
+            value += list1.data;
+        }
+
+        if (list2 != null) {
+            value += list2.data;
+        }
+
+        result.data = value % 10;
+
+        if (list1 != null || list2 != null) {
+            Node more = addLists(list1 == null ? null : list1.next, list2 == null ? null : list2.next, value >= 10 ? 1 : 0);
+            result.setNext(more);
+        }
+
+        return result;
     }
 }
