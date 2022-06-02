@@ -218,6 +218,11 @@ public class SumLists {
 
     //answer from book
     //reverse
+    //recusive call in math = f(f(f(...f(x)...)))
+    //*how to read codes contain recursive call: find the last result of recursive calls
+    //*when to adopt recursive call: when the whole process can be analysed as a process that is formed
+    // by calling a process (mostly simpler) repeatly --I call it f
+    //*how to design recursive call: 2 parts: 1st : code f , 2nd : code how to link f (i.e f(f )
     private static Node addLists (Node list1, Node list2) {
         return addLists(list1, list2, 0);
     }
@@ -249,4 +254,9 @@ public class SumLists {
 
         return result;
     }
+
+    //when to use wrapper class:
+    //1. The objects are necessary if we wish to modify the arguments passed into the method (because primitive
+    // types are passed by value).
+    //2. return several primitive values/objects from a method
 }
