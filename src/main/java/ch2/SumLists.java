@@ -38,8 +38,18 @@ public class SumLists {
                     '}';
         }
 
-        public void setNext (Node n) {
+        private void setNext (Node n) {
             next = n;
+        }
+
+        private int length () {
+            int count = 1;
+            Node n = next;
+            while (n != null) {
+                count += 1;
+                n = n.next;
+            }
+            return count;
         }
     }
 
@@ -217,7 +227,7 @@ public class SumLists {
     }
 
     //answer from book
-    //reverse
+    //reverse 7->1->6 = 617
     //recusive call in math = f(f(f(...f(x)...)))
     //*how to read codes contain recursive call: find the last result of recursive calls
     //*when to adopt recursive call: when the whole process can be analysed as a process that is formed
@@ -259,4 +269,77 @@ public class SumLists {
     //1. The objects are necessary if we wish to modify the arguments passed into the method (because primitive
     // types are passed by value).
     //2. return several primitive values/objects from a method
+    //Follow up 6->1->7
+
+    public static class FollowUp {
+        private class PartialSum {
+            Node sum = null;
+            int carry = 0;
+        }
+
+        public Node addLists (Node l1, Node l2) {
+            int len1 = l1.length();
+            int len2 = l2.length();
+
+            //Pad the shorter list with zeros - see note (1)
+            if (len1 < len2) {
+                l1 = padList(l1, len2 - len1);
+            } else {
+                l2 = padList(l2, len1 -len2);
+            }
+
+            //Add list
+            PartialSum sum = addListsHelper(l1, l2);
+
+            //If there was a carry vlaue left over, insert this at the front of the list.
+            //Otherwise, just return the linked list.
+            if (sum.carry == 0) {
+                return sum.sum;
+            } else {
+                Node result = insertBefore(sum.sum, sum.carry);
+                return result;
+            }
+        }
+
+        PartialSum addListsHelper (Node l1, Node l2) {
+            if (l1 == null && l2 == null) {
+                PartialSum sum = new PartialSum();
+                return sum;
+            }
+            //Add smaller digits recursively
+            PartialSum sum = addListsHelper(l1.next, l2.next);
+
+            //Add carry to current data
+            int val = sum.carry + l1.data + l2.data;
+
+            //Insert sum of current digits
+            Node fullResult = insertBefore(sum.sum, val % 10);
+
+            //Return sum so far, and the carry value
+            sum.sum = fullResult;
+            sum.carry = val / 10;
+            return sum;
+        }
+
+        //Pad the list with zeros
+        Node padList(Node l, int padding) {
+            Node head = l;
+            for (int i = 0; i < padding; i++) {
+                head = insertBefore(head, 0);
+            }
+            return head;
+        }
+
+        //Helper function to insert node in the frint if a linked lsit
+        Node insertBefore(Node list, int data) {
+            Node node = new Node(data);
+            if (list != null) {
+                node.next = list;
+            }
+            return node;
+        }
+    }
+
+
+
 }
