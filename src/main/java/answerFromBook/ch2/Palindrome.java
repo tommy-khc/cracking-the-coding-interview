@@ -29,6 +29,14 @@ public interface Palindrome {
     }
 
     private Boolean isEqual (Node one, Node two) {
-        return null;
+        while (one != null && two != null) {
+            if (one.data != two.data) {
+                return Boolean.FALSE;
+            }
+            one = one.next;
+            two = two.next;
+        }
+        return one == null && two == null; // We don't use Boolean.True because it can make sure the lengths of them
+                                            // are the same
     }
 }
