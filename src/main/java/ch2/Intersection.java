@@ -7,7 +7,7 @@ public class Intersection {
 
     private static final Logger logger = LogManager.getLogger(Intersection.class);
 
-    public static Boolean answer(LinkedList list1, LinkedList list2) {
+    public static Node answer(LinkedList list1, LinkedList list2) {
 
         if (list1 == null) {
             logger.error("list1 is null");
@@ -25,13 +25,13 @@ public class Intersection {
         while (current1 != null) {
             while (current2 != null) {
                 if (current1.equals(current2)) {
-                    return Boolean.TRUE;
+                    return current1;
                 }
                 current2 = current2.next;
             }
             current2 = list2.head;
             current1 = current1.next;
         }
-        return Boolean.FALSE;
+        return null;
     }
 }

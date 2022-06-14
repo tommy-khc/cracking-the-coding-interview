@@ -36,6 +36,6 @@ public class IntersectionTest {
         list2.appendToTail('b');
         list2.getNthNode(0).next = list1.getNthNode(2);
 
-        Assertions.assertEquals(Boolean.TRUE, Intersection.answer(list1, list2));
+        Assertions.assertEquals(list1.getNthNode(2), Intersection.answer(list1, list2));
     }
 }
