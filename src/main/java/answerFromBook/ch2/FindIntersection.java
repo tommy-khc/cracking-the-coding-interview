@@ -1,6 +1,6 @@
 package answerFromBook.ch2;
 
-public interface Intersection {
+public interface FindIntersection {
     
     //Concepts:
     //1. Determining if there's an intersection

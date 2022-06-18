@@ -3,11 +3,9 @@ package answerFromBook.ch2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Stack;
+public interface CheckPalindrome {
 
-public interface Palindrome {
-
-    Logger logger = LogManager.getLogger(Palindrome.class);
+    Logger logger = LogManager.getLogger(CheckPalindrome.class);
 
 //    //Reverse and Compare
 //    default boolean isPalindrome (Node head) {
