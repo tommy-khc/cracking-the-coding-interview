@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinkedList implements Palindrome {
+public class LinkedList implements CheckPalindrome, FindIntersection, LoopDetectable {
 
     private static final Logger logger = LogManager.getLogger(LinkedList.class);
 
@@ -80,10 +80,11 @@ public class LinkedList implements Palindrome {
         }
         
         Node end = new Node(new_data);
-        while (head.next != null) {
-            head = head.next;
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
         }
-        head.next = end;
+        current.next = end;
     }
 
     public void appendToHead(char new_data) {
@@ -108,6 +109,16 @@ public class LinkedList implements Palindrome {
     }
 
     public boolean isPalindrome() {
-        return Palindrome.super.isPalindrome(head);
+        return CheckPalindrome.super.isPalindrome(head);
+    }
+
+    public Node findIntersection(LinkedList list2) {
+        Node head1 = head;
+        Node head2 = list2.head;
+        return FindIntersection.super.findIntersection(head1, head2);
+    }
+
+    public Node searchBeginningOfLoop() {
+        return LoopDetectable.super.searchBeginningOfLoop(head);
     }
 }
