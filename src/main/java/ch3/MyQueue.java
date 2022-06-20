@@ -18,9 +18,9 @@ public class MyQueue<T> {
     public void add (T item) { //understand it, it is a bit hard
         QueueNode<T> t = new QueueNode<T>(item);
         if (last != null) {
-            last.next = t; // first = last -> last.next = t -> first.next = t
-        }
-        last = t;
+            last.next = t; //After the first addition (1), then for the second addition (2), first = last -> last.next = t -> first.next = t
+        }                   //(3) last.next (second QueueNode's next) = t (third QueueNode)
+        last = t; //(2) last = t
         if (first == null) {
             first = last;
         }
