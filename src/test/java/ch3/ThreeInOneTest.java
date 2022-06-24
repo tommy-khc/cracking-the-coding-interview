@@ -14,7 +14,7 @@ public class ThreeInOneTest {
             number++;
         }
         System.out.println(stack.toString());
-        for (int i : new int[stack.getSize()]) {
+        for (int i : new int[stack.getSize()]) { //bug, but that is not the point
             System.out.println(stack.pop().toString());
         }
     }

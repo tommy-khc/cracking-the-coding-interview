@@ -15,8 +15,9 @@ public class ThreeInOne {
     public Object pop () {
         for (int i = size-1 ; i >= 0; i--) {
             if (objects[i] != null) {
-                Object result = objects[i]; //TODO there is a bug, need to use clone method
-                objects[i] = 0;
+                Object[] clone = objects.clone();
+                Object result = clone[i];
+                objects[i] = null;
                 return result;
             }
         }
