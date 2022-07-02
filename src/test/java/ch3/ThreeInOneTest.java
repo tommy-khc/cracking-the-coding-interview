@@ -10,7 +10,7 @@ public class ThreeInOneTest {
         ThreeInOne stack = new ThreeInOne();
         int number = 0;
         for (int i : new int[10]) {
-            stack.push(number, "first"); // TODO Bug
+            stack.push(number, "first"); // TODO Bugs
             number++;
         }
         System.out.println(stack.toString());
